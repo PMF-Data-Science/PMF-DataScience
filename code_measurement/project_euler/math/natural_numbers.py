@@ -1,12 +1,11 @@
 import numpy
 
 
-DIVISOR_THREE = 3
 DIVISOR_FIVE = 5
-UPPER_LIMIT = 1000
+DIVISOR_THREE = 3
 
 
-def get_natural_numbers_sum():
+def get_natural_numbers_sum(upper_limit):
     # return sum(
     #     number
     #     for number in range(UPPER_LIMIT)
@@ -15,7 +14,7 @@ def get_natural_numbers_sum():
 
     natural_numbers_generator = (
       number
-      for number in range(UPPER_LIMIT)
+      for number in range(upper_limit)
       if not number % DIVISOR_THREE or not number % DIVISOR_FIVE
     )
 
