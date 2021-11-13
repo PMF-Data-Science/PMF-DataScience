@@ -8,7 +8,9 @@ DIVISOR_MINUS_FIVE = -5
 DIVISOR_MINUS_THREE = -3
 DIVISOR_MINUS_SEVEN = -7
 
-def get_natural_numbers_sum(lower_limit,upper_limit):
+divisors_list = [DIVISOR_FIVE, DIVISOR_THREE, DIVISOR_SEVEN, DIVISOR_MINUS_FIVE, DIVISOR_MINUS_THREE, DIVISOR_MINUS_SEVEN]
+
+def get_natural_numbers_sum(lower_limit, divisors_list, upper_limit):
     # return sum(
     #     number
     #     for number in range(UPPER_LIMIT)
@@ -30,16 +32,15 @@ def get_natural_numbers_sum(lower_limit,upper_limit):
     #       divisors_list.append(divisor)
     #       continue
     #   break
-
-    #nećemo koristit gore navedenu while petlju jer bi unos zahtijevao dosta vremena
-    #umjesto while petlje i korisničkog unosa, simulirat ćemo korisnički unos preko numpy.random.randint funkcije
+    
+    '''Simuliranje korisničkog unosa funkcijom numpy.random.randint'''
 
     #divisors_set = set(np.random.randint(low=1,high=upper_limit,size=upper_limit - 1))
 
     natural_numbers_generator = (
       number
-      for number in range(lower_limit + 1,upper_limit) #budući da se ne uzima upper_limit, ne uzima se ni lower_limit
-      if not number % DIVISOR_THREE or not number % DIVISOR_FIVE or not number % DIVISOR_SEVEN or not number % DIVISOR_MINUS_FIVE or not number % DIVISOR_MINUS_THREE or not number % DIVISOR_MINUS_SEVEN
+      for number in range(lower_limit + 1, upper_limit) #budući da se ne uzima upper_limit, ne uzima se ni lower_limit
+      if [True if i % divisor_number == 0 else False for divisor_number in divisors_list].count(True) == len(divisors_list)
       #if sum(map((lambda x: number % x),divisors_set))
     )
 
