@@ -1,5 +1,5 @@
 import unittest
-import random
+from random import randint
 from natural_numbers import get_natural_numbers_sum
 
 class TestNaturalNumbersSum(unittest.TestCase):
