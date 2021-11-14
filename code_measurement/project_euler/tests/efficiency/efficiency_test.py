@@ -27,4 +27,3 @@ def test_efficiency(divisors):
         for limit in limits:
                 measurements_dict.update({limit[1]:timeit.timeit(lambda:natural_numbers.get_natural_numbers_sum(limit[0], divisors, limit[1]), number=1)})
         return measurements_dict
-\n
