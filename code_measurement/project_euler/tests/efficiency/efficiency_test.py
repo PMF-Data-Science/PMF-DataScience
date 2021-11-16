@@ -23,11 +23,7 @@ lower_limits = [LOWER_LIMIT1,LOWER_LIMIT2,LOWER_LIMIT3,LOWER_LIMIT4,LOWER_LIMIT5
 
 limits = zip(upper_limits,lower_limits)
 
-def test_efficiency():
-        #for upper_limit in upper_limits:
-                #measurements_dict.update({upper_limit:timeit.timeit(lambda:natural_numbers.get_natural_numbers_sum(upper_limit), number=1)})
-        #return measurements_dict
-
+def test_efficiency(divisors):
         for limit in limits:
-                measurements_dict.update({limit[1]:timeit.timeit(lambda:natural_numbers.get_natural_numbers_sum(limit[0],limit[1]), number=1)})
+                measurements_dict.update({limit[1]:timeit.timeit(lambda:natural_numbers.get_natural_numbers_sum(limit[0], divisors, limit[1]), number=1)})
         return measurements_dict
